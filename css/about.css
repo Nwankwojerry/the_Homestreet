@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #e6ffe6; /* light green backround */
+}
+
+header {
+  background-color: #228833; /* green header */
+  color: white;
+  padding: 1em;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 0.5em;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.main-content {
+  padding: 1em;
+}
+
+footer {
+  text-align: center;
+  padding: 1em;
+  background-color: #ccc;
+}
+
+@media (max-width: 600px) {
+  nav {
+    display: block;
+    text-align: center;
+  }
+  nav a {
+    display: block;
+    margin: 0.5em 0;
+  }
+}

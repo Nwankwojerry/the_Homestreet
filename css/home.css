@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fof8ff; /* light blue backgroud */
+}
+
+header {
+  background-color: #336699; /* blue header */
+  color: white;
+  padding: 1em;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 0.5em;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.main-content {
+  padding: 1em;
+}
+
+footer {
+  text-alien: center;
+  padding: 1em;
+  background-color: #ccc;
+}
+
+/* Responsive: Stack nav links on small screens */ 
+@media (max-width: 600px) {
+  nav {
+    display: block;
+    text-align: center;
+  }
+  nav a {
+    display: block;
+    margin: 0.5em 0;
+  }
+}
