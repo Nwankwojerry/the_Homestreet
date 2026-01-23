@@ -10,6 +10,75 @@ header {
   padding: 1em;
 }
 
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 14px 20px;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  position: relative;
+  z-index: 1100;
+}
+
+.site-header .logo h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.menu-toggle {
+  background: transparent;
+  border: none;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 8px 10px;
+}
+
+.sidebar-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 260px;
+  height: 100vh;
+
+  background-color: #111;
+  padding-top: 80px;
+
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+
+  z-index: 1000;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li {
+  margin-botton: 20px;
+}
+
+.sidebar-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px 20px;
+  display: block;
+}
+
+.sidebar-nav a:hover {
+  background-color: #222;
+}
+
+.sidebar-nav.open {
+  transform: translateX(0);
+}
+
 nav a {
   color: white;
   text-decoration: none;

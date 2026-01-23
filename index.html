@@ -7,15 +7,27 @@
   <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
-  <header>
-    <h1>Homestreet</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="pages/about.html">About</a>
-      <a href="pages/posts.html">Blog</a>
-      <a href="pages/contact.html">Contact</a>
-    </nav>
+  <header class="site-header">
+    <div class="logo">
+      <h1>Homestreet</h1>
+    </div>
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="sidebar">
+      MENU
+    </button>
   </header>
+    <nav id="sidebar"class="sidebar-nav" aria-label="Sidebar navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pages/about.html">About</a></li>
+        <li><a href="pages/posts.html">Blog</a></li>
+        <li><a href="pages/contact.html">Contact</a></li>
+      </ul>
+    </nav>
   <main class="main-content">
     <h2>Welcome to Homestreet Blog</h2>
     <p>Welcome to a place designed for the exchange of ideas and the advancement of exclusive contents. This platform exists to empower its user by providing the tools and insight neccesary for success in a rapidly changing enviroment.</p>
@@ -25,5 +37,33 @@
     <p>&copy; 2026 Homestreet blog</p>
   </footer>
 <script scr="js/main.js"></script>
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const sidebar = document.getElementById('sidebar');
+
+  if (menuToggle && sidebar) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = sidebar.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded',isOpen);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && sidebar.classList.contains('open)) {
+        sidebar.classList.remove('open);
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  } else {
+    console.warn('Menu toggle or sidebar not found: check class/id names.');
+  }
+</script>
+<script>
+  const menuBtn = document.querySelector(".menu-toggle");
+  const sidebar = document.querySelector(".sidebar-nav");
+
+  menuBtn.addEventListener("click", function () {
+    sidebar.classList.toggle("open");
+  });
+</script>
 </body>
 </html>
