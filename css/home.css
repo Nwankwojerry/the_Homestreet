@@ -125,7 +125,7 @@ footer {
 }
 .overlay.active {
   opacity: 1;
-  pointer-events: auto;
+  pointer-events: all;
 }  
 @media (max-width: 768px) {
   .main-nav {
