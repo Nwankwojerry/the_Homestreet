@@ -11,12 +11,13 @@
     <div class="logo">
       <h1>Homestreet</h1>
     </div>
-    <button
-      class="menu-btn"
-      type="button"
-      aria-label="Open navigation menu"
-      aria-expanded="false"
-      aria-controls="sidebar">
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="pages/about.html">About</a>
+      <a href="pages/posts.html">Blog</a>
+      <a href="pages/contact.html">Contact</a>
+    </nav>
+    <button class="menu-btn" type="button" aria-label="Open navigation menu">
       MENU
     </button>
   </header>
@@ -24,9 +25,10 @@
     <nav id="sidebar"class="sidebar-nav" aria-label="Sidebar navigation">
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="pages/about.html">About</a></li>
-        <li><a href="pages/posts.html">Blog</a></li>
-        <li><a href="pages/contact.html">Contact</a></li>
+        <li><a href="pages/news.html">News</a></li>
+        <li><a href="pages/movies.html">Movie Recs</a></li>
+        <li><a href="pages/forum.html">Forum</a></li>
+        <li><a href="pages/career.html">Career</a></li>
       </ul>
     </nav>
   <main class="main-content">
@@ -34,50 +36,13 @@
     <p>Welcome to a place designed for the exchange of ideas and the advancement of exclusive contents. This platform exists to empower its user by providing the tools and insight neccesary for success in a rapidly changing enviroment.</p>
     <p>By providing a streamlined accessible interface and curated contents, progress is a product of collective effort. This site aims to foster an enviroment where knowledge is shared freely and effectively so expect a consistence streams of resources tailored to the needs of a modern audience.</p>
   </main>
-  <footer>
+  <footer class="site-footer">
+    <p>
+      <a href="pages/about.html">About</a> |
+      <a href="pages/contact.html">Contact</a>
+    </p>
     <p>&copy; 2026 Homestreet blog</p>
   </footer>
 <script scr="js/main.js"></script>
-<script>
-  const menuBtn = document.querySelector('.menu-btn');
-  const sidebar = document.getElementById('sidebar');
-
-  if (menuBtn && sidebar) {
-    menuBtn.addEventListener('click', () => {
-      const isOpen = sidebar.classList.toggle('open');
-      menuBtn.setAttribute('aria-expanded',isOpen);
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && sidebar.classList.contains('open)) {
-        sidebar.classList.remove('open);
-        menuBtn.setAttribute('aria-expanded', 'false');
-      }
-    });
-  } else {
-    console.warn('Menu button or sidebar not found: check class/id names.');
-  }
-
-  const menuBtn = document.querySelector('.menu-btn');
-  const sidebar = document.querySelector('.sidebar-nav');
-
-  menuBtn.addEventListener("click;, function () {
-    sidebar.classList.btn('open');
-  });
-
-  const menuBtn = document.querySelector('.menu-btn');
-  const sidebar = document.querySelector('.sidebar-nav');
-  const overlay = document.querySelector('.overlay');
-
-  menuBtn.addEventlistener('click', () => {
-    sidebar.classList.toggle('open');
-    overlay.classList.toggle('active');
-  });
-
-  overlay.addEventListener('click', () => {
-    sidebar.classList.remove('open');
-    overlay.classList.remove('active');
-  });
-</script>
 </body>
 </html>
