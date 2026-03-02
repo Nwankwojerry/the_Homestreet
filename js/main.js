@@ -1,23 +1,10 @@
-// js/main.js
-console.log("JavaScript is successfully linked!");
-
-// Basic test function
-function testConnection() {
-    alert("JS Link Verified");
-}
-
-// Initialize
-window.onload = function() {
-    console.log("Page fully loaded");
-};
-
 document.addEventListener("DOMContentLoaded", function () {
-  const menuBtn = document.getElementById("menu-btn");
+  const menuBtn = document.querySelector(".menu-btn");
   const sidebar = document.getElementById("sidebar");
   const overlay = document.querySelector(".overlay");
 
-  if (!menuBtn || !sidebar) {
-    console.log("Menu button or sidebar not found");
+  if (!menuBtn || !sidebar || !overlay) {
+    console.log("Menu button, sidebar, or overlay not found");
     return;
   }
 
