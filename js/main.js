@@ -1,26 +1,28 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const menuBtn = document.querySelector(".menu-btn");
-  const sidebar = document.getElementById("sidebar");
-  const overlay = document.querySelector(".overlay");
+const menuBtn = document.querySelector(".menu-btn");
+const sidebar = document.querySelector("sidebar-nav");
+const overlay = document.querySelector(".overlay");
 
-  if (!menuBtn || !sidebar || !overlay) {
-    console.log("Menu button, sidebar, or overlay not found");
-    return;
-  }
-
-  // Open menu
-  menuBtn.addEventListener("click", function () {
-    sidebar.classList.toggle("active");
-    overlay.classList.toggle("active");
+if (menuBtn && sidebar && overlay) {
+  menuBtn.addEventListener("click", () => {
+    const isOpen = sidebar.classList.toggle("open");
+    overlay.classList.toggle("active", isOpen);
+    menuBtn.setAttribute("aria-expanded", isOpen);
   });
 
-  // Close when overlay is clicked
-  if (overlay) {
-    overlay.addEventListener("click", function () {
-      sidebar.classList.remove("active");
-      overlay.classList.remove("active");
-    });
-  }
+  overlay.addEventListener("click", () => {
+    sidebar.classList.remove("active");
+    overlay.classList.remove("active");
+    menuBtn.setAttribute("aria-expanded", "false");
+  });
 
-  console.log("Menu system loaded");
-});
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && sidebar.classList.contains("open)) {
+      sidebar.classList.remove("open");
+      overlay.classList.remove("active");
+      menuBtn.setAttribute("aria-expanded", "false");
+    }
+  });
+
+} else {
+  console.warn("Menu button, sidebar, or overlay not found. Check class names.");
+}
