@@ -1,5 +1,5 @@
 const menuBtn = document.querySelector(".menu-btn");
-const sidebar = document.querySelector("sidebar-nav");
+const sidebar = document.querySelector(".sidebar-nav");
 const overlay = document.querySelector(".overlay");
 
 if (menuBtn && sidebar && overlay) {
