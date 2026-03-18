@@ -1,30 +1,50 @@
-// Get DOM elements
-const menuBtn = document.querySelector(".menu-btn");
-const sidebar = document.querySelector(".sidebar-nav");
-const overlay = document.querySelector(".overlay");
+(function () {
+  const menuBtn = document.querySelector(".menu-btn") ||
+document.querySelector(".menu-toggle");
+  const sidebar = document.getElementById("sidebar") ||
+document.querySelector(".sidebar-nav");
+  const overlay = document.querySelector(".overlay");
 
-if (menuBtn && sidebar && overlay) {
-  // Toggle sidebar when menu button is clicked
-  menuBtn.addEventListener("click", () => {
-    const isOpen = sidebar.classList.toggle("open");
-    overlay.classList.toggle("active", isOpen); // Show/hide overlay
-    menuBtn.setAttribute("aria-expanded", isOpen);
-  });
-  // Close sidebar when overlay is clicked
-  overlay.addEventListener("click", () => {
-    sidebar.classList.remove("open");
-    overlay.classList.remove("active");
-    menuBtn.setAttribute("aria-expanded", "false");
-  });
+  console.log(DEBUG: elements ->", { menu, sidebar, overlay });
+
+if (!menuBtn) {
+  alert("DEBUG: menu button not found (check class .menu-btn).");
+  return;
+}
+if (!sidebar) {
+  alert("DEBUG: sidebar element not found (check id='sidebar' or class='sidebar-nav').");
+  return;
+}
+
+if  (!overlay) {
+  console.warn("DEBUG: overlay not found  - overlay clicks will not close the sidebar.");
+}
+
+  menuBtn.setAttribute("aria-expanded", menuBtn.getAttribute("aria-expanded") || "false");
+
+  function toggleSidebar(open) {
+    const isOpen = typeof open === "boolean" ? open : !sidebar.classList.contains("open");
+    sidebar.classList.toggle("open", isOpen);
+    if (overlay) ovarlay.classList.toggle("active", isOpen);
+    menuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    console.log("DEBUG: toggleSidebar ->", isOpen);
+  }
+
+  menuBtn.onclick = null;
+  menuBtn.addEventListener("click", () => toggleSidebar());
+
+  if (overlay) {
+    overlay.onclick = null;
+    overlay.addEventListener("click", () => toggleSidebar(false));
+  }
 
   // Close sidebar with Escape key
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && sidebar.classList.contains("open")) {
-      sidebar.classList.remove("open");
-      overlay.classList.remove("active");
-      menuBtn.setAttribute("aria-expanded", "false");
+      toggleSidebar(false);
     }
   });
+})();
 
 } else {
   console.warn("Menu button, sidebar, or overlay not found. Check class names.");
