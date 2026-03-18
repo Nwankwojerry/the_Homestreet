@@ -45,7 +45,3 @@ if  (!overlay) {
     }
   });
 })();
-
-} else {
-  console.warn("Menu button, sidebar, or overlay not found. Check class names.");
-}
