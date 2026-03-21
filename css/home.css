@@ -138,11 +138,6 @@ footer {
  
 }
 
-@media (min-width: 769px) {
-  .sidebar-nav {
-    display: none;
-  }
-
   .overlay {
     display: none;
   }
@@ -154,7 +149,7 @@ footer {
     position: relative;
     z-index: 1000;
   }
-}
+
 .main-nav a {
   color: #333;
   text-decoration: none;
