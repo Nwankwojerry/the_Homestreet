@@ -128,7 +128,7 @@ footer {
   .menu-btn { display: inline-block; }
   .main-nav { display: none; }
 }
-@media (mix-width: 769px) {
+@media (min-width: 769px) {
   .main-nav { display: block; }
   .menu-btn { display: none; }
 }

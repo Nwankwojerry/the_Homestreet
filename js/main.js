@@ -1,7 +1,7 @@
 (function () {
   const menuBtn = document.querySelector(".menu-btn") ||
 document.querySelector(".menu-toggle");
-  const sidebar = document.getElementById(".sidebar") ||
+  const sidebar = document.getElementById("sidebar") ||
 document.querySelector(".sidebar-nav");
   const overlay = document.querySelector(".overlay");
 
@@ -12,7 +12,7 @@ if (!menuBtn) {
   return;
 }
 if (!sidebar) {
-  alert("DEBUG: sidebar element not found (check id='.sidebar' or class='sidebar-nav').");
+  alert("DEBUG: sidebar element not found (check id='sidebar' or class='sidebar-nav').");
   return;
 }
 
