@@ -12,7 +12,7 @@ if (!menuBtn) {
   return;
 }
 if (!sidebar) {
-  alert("DEBUG: sidebar element not found (check id='sidebar' or class='sidebar-nav').");
+  alert("DEBUG: sidebar element not found (check id='sidebar' or class='.sidebar-nav').");
   return;
 }
 
