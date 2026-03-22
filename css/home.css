@@ -134,19 +134,6 @@ footer {
 }
 
 .menu-btn {
-  display: none;
- 
-}
-
-.overlay {
-  display: none;
-}
-
-.menu-btn {
-  display: none;
-}
-
-.menu-btn {
   position: relative;
   z-index: 1000;
 }
