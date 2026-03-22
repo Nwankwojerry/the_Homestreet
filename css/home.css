@@ -138,17 +138,18 @@ footer {
  
 }
 
-  .overlay {
-    display: none;
-  }
+.overlay {
+  display: none;
+}
 
-  .menu-btn {
-    display: none;
-  }
-  .menu-btn {
-    position: relative;
-    z-index: 1000;
-  }
+.menu-btn {
+  display: none;
+}
+
+.menu-btn {
+  position: relative;
+  z-index: 1000;
+}
 
 .main-nav a {
   color: #333;
