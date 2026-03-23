@@ -5,7 +5,7 @@ document.querySelector(".menu-toggle");
 document.querySelector(".sidebar-nav");
   const overlay = document.querySelector(".overlay");
 
-  console.log(DEBUG: elements ->", { menu, sidebar, overlay });
+  console.log("DEBUG: elements ->", { menuBtn, sidebar, overlay });
 
 if (!menuBtn) {
   alert("DEBUG: menu button not found (check class .menu-btn).");
@@ -25,7 +25,7 @@ if  (!overlay) {
   function toggleSidebar(open) {
     const isOpen = typeof open === "boolean" ? open : !sidebar.classList.contains("open");
     sidebar.classList.toggle("open", isOpen);
-    if (overlay) ovarlay.classList.toggle("active", isOpen);
+    if (overlay) overlay.classList.toggle("active", isOpen);
     menuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
     console.log("DEBUG: toggleSidebar ->", isOpen);
   }
