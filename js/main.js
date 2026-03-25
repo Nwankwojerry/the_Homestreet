@@ -44,4 +44,14 @@ if  (!overlay) {
       toggleSidebar(false);
     }
   });
+const yearSpan = document.getElementById("year");
+if (yearSpan) {
+  yearSpan.textContent = new Date().getFullYear();
+}
+
+document.querySelectorAll(".social-link").forEach(link => {
+  link.addEventListener("click", (e) => {
+      console.log("User clicked social link: ${e.target.innerText}");
+  });
+});
 })();
