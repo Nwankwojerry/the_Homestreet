@@ -2,6 +2,7 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #fof8ff; /* light blue backgroud */
+  padding-top: 80px;
 }
 
 header {
@@ -17,9 +18,12 @@ header {
   gap: 1rem;
   padding: 14px 20px;
   background: #111;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-  position: relative;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  position: fixed;
   z-index: 1100;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 .site-header .logo h1 {
