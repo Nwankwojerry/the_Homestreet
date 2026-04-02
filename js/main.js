@@ -51,7 +51,7 @@ if (yearSpan) {
 
 document.querySelectorAll(".social-link").forEach(link => {
   link.addEventListener("click", (e) => {
-      console.log("User clicked social link: ${e.target.innerText}");
+      console.log(`User clicked social link: ${e.target.innerText}`);
   });
 });
 })();
