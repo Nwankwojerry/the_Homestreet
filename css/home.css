@@ -51,7 +51,7 @@ header {
   background-color: white;
   border-radius: 3px;
   transition: all 0.3s ease;
-
+}
 .sidebar-nav {
   position: fixed;
   top: 0;
