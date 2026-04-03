@@ -1,3 +1,6 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -12,11 +15,9 @@ header {
 }
 
 .site-header {
-  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
   padding: 14px 20px;
   background: #111;
   box-shadow: 0 2px 10px rgba(0,0,0,0.3);
@@ -30,6 +31,7 @@ header {
 .site-header .logo h1 {
   margin: 0;
   font-size: 20px;
+  color: white;
 }
 
 .menu-btn {
@@ -38,17 +40,18 @@ header {
   cursor: pointer;
   padding: 0;
   display: flex;
-  flex-directon: column;
+  flex-direction: column;
   justify-content: space-between;
   width: 30px;
   height: 20px;
   z-index: 1200;
+  position: relative;
 }
 .menu-btn span {
   display: block;
   width: 100%;
   height: 3px;
-  background-color: white;
+  background-color: ffffff;
   border-radius: 3px;
   transition: all 0.3s ease;
 }
@@ -129,8 +132,8 @@ footer {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.5);
   opacity: 0;
   pointer-events: none;
@@ -142,12 +145,13 @@ footer {
   pointer-events: auto;
 }  
 @media (max-width: 768px) {
-  .menu-btn { display: inline-block; }
+  .menu-btn { display: flex; }
   .main-nav { display: none; }
 }
 @media (min-width: 769px) {
   .main-nav { display: block; }
   .menu-btn { display: none; }
+  .main-nav a { color: white; margin-left: 15px; text-decoration: none; }
 }
 
 .menu-btn {
@@ -165,8 +169,7 @@ footer {
   color: #ccc;
   text-align: center;
   padding: 40px 20px;
-  border-top: 1px solid #333;
-  margin-top: auto;
+  margin-top: 50px;
 }
 .footer-legal {
   margin-bottom: 20px;
