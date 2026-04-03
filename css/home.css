@@ -35,7 +35,10 @@ header {
 }
 
 .menu-btn {
-  background: transparent;
+  filter: none !important;
+  -webkit-filter: none !important;
+  background: transparent !important;
+  outline: none;
   border: none;
   cursor: pointer;
   padding: 0;
@@ -50,11 +53,15 @@ header {
 .menu-btn span {
   display: block;
   width: 100%;
-  min-height: 3px;
   height: 3px
+  margin-bottom: 5px;
   background-color: #ffffff !important;
+  background: #ffffff !important;
   border-radius: 3px;
   transition: all 0.3s ease;
+}
+.menu-btn span:last-child {
+  margin-bottom: 0;
 }
 .sidebar-nav {
   position: fixed;
