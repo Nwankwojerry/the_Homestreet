@@ -3,27 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About - Homestreet Blog</title>
-  <link rel="stylesheet" href="../css/about.css">
+  <title>About - Homestreet</title>
+  <link rel="stylesheet" href="../css/home.css">
 </head>
 <body>
-  <header>
-    <h1>Homestreet Blog</h1>
-    <nav>
+  <header class="site-header">
+    <div class="logo">
+      <h1>Homestreet</h1>
+    </div>
+    <nav class="main-nav">
       <a href="../index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="posts.html">Blog</a>
-      <a href="contact.html">Contact</a>
+      <a href="pages/about.html">About</a>
+      <a href="pages/posts.html">Blog</a>
+      <a href="pages/contact.html">Contact</a>
     </nav>
+    <button class="menu-btn" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="sidebar">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </header>
+  <div class="overlay" aria-hidden="true"></div>
+    <nav id="sidebar" class="sidebar-nav" aria-label="Sidebar navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pages/news.html">News</a></li>
+        <li><a href="pages/posts.html">Blog</a></li>
+        <li><a href="pages/career.html">Career</a></li>
+        <li><a href="pages/forums.html">Forums</a></li>
+        <li><a href="pages/resources.html">Resources</a></li>
+        <li><a href="pages/about.html">About</a></li>
+        <li><a href="pages/contact.html">Contact</a></li>
+      </ul>
+    </nav>
   <main class="main-content">
-    <h2>About us</h2>
-    <p>This platform is being established to serve a progressive resourse for all users as the primary objective is to provide high-quality data driven insighs that helps navigate the complexities of the morderm digital landscape.<p/>
+    <h2>About Homestreet</h2>
+    <p>This platform is being established to serve a progressive resourse for all users as the primary objective is to provide high-quality data driven insighs that helps navigate the complexities of the morderm digital landscape.</p>
     <p>The site is currently in it's foundation phase, built primarily using <strong>html and css</strong> whose focus at this stage is on establishing a clean accessible structure and responsive design. As the technical infrastructure evolves beyound the core styling and layout levels, iterative updates will be implemented and ensures even though the site is at its lightweight, but also efficient, as it aligns with progressive web standards during its development.</p>
   </main>
-  <footer>
-    <p>&copy; 2026 Homestreet Blog</p>
+  <footer class="site-footer">
+    <div class="footer-legal">
+    <a href="pages/privacy.html">Privacy Policy</a>
+    <span class="divider">|</span>
+    <a href="pages/terms.html">Terms & Conditions</a>
+  </div>
+
+  <div class="footer-socials">
+    <p>Visit our Platforms:</p>
+    <div class="social-icons">
+      <a href="https://facebook.com" target="_blank" class="social-link facebook">
+        Facebook
+      </a>
+      <a href="https://tiktok.com" target="_blank" class="social-link tiktok">
+        Tiktok
+      </a>
+      <a href="https://github.com" target="_blank" class="social-link github">
+        Github
+      </a>
+    </div>
+  </div>
+  
+    <p>
+      <a href="pages/about.html">About</a> |
+      <a href="pages/contact.html">Contact Us</a>
+    </p>
+  <div class="footer-copy">
+    <p>&copy; <span id="year"></span> Homestreet</p>
+  </div>
   </footer>
-<script scr="../js/main.js"></script>
+<script src="../js/main.js"></script>
 </body>
 </html>
