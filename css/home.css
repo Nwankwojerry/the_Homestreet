@@ -53,10 +53,9 @@ header {
 .menu-btn span {
   display: block;
   width: 100%;
-  height: 3px
+  height: 3px;
   margin-bottom: 5px;
-  background-color: #ffffff !important;
-  background: #ffffff !important;
+  background: #fff;
   border-radius: 3px;
   transition: all 0.3s ease;
 }
@@ -162,10 +161,6 @@ footer {
   .main-nav a { color: white; margin-left: 15px; text-decoration: none; }
 }
 
-.menu-btn {
-  position: relative;
-}
-
 .main-nav a {
   color: #fff;
   text-decoration: none;
@@ -179,7 +174,7 @@ form {
   border-radius: 5px;
 }
 
-lable {
+label {
   display: block;
   margin-bottom: 0.5em;
 }
