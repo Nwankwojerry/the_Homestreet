@@ -171,6 +171,38 @@ footer {
   text-decoration: none;
   padding: 0 0.5rem;
 }
+
+form {
+  background-color: white;
+  padding: 1em;
+  max-width: 500px;
+  border-radius: 5px;
+}
+
+lable {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+input[type="text"], input[type="email"], textarea {
+  width: 100%;
+  padding: 0.5em;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 0.5em 1em;
+  background-color: #663366;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #550055;
+}
+
 .site-footer {
   background-color: #111;
   color: #ccc;
