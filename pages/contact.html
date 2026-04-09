@@ -3,20 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact - Homestreet Blog</title>
-  <link rel="stylesheet" href="../css/contact.css">
+  <title>Homestreet</title>
+  <link rel="stylesheet" href="../css/home.css">
 </head>
 <body>
-  <header>
-    <h1>Homestreet Blog</h1>
-    <nav>
+  <header class="site-header">
+    <div class="logo">
+      <h1>Homestreet</h1>
+    </div>
+    <nav class="main-nav">
       <a href="../index.html">Home</a>
       <a href="about.html">About</a>
       <a href="posts.html">Blog</a>
       <a href="contact.html">Contact</a>
     </nav>
+    <button class="menu-btn" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="sidebar">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </header>
-  <main class="main-contact">
+  <div class="overlay" aria-hidden="true"></div>
+    <nav id="sidebar" class="sidebar-nav" aria-label="Sidebar navigation">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="posts.html">Blog</a></li>
+        <li><a href="career.html">Career</a></li>
+        <li><a href="forums.html">Forums</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  <main class="main-content">
     <h2>Contact us</h2>
     <form>
       <lable>
@@ -34,8 +54,36 @@
       <button type="submit">Send</button>
     </form>
   </main>
-  <footer>
-    <P>&copy; 2026 Homestreet</p>
+  <footer class="site-footer">
+    <div class="footer-legal">
+    <a href="pages/privacy.html">Privacy Policy</a>
+    <span class="divider">|</span>
+    <a href="pages/terms.html">Terms & Conditions</a>
+  </div>
+
+  <div class="footer-socials">
+    <p>Visit our Platforms:</p>
+    <div class="social-icons">
+      <a href="https://facebook.com" target="_blank" class="social-link facebook">
+        Facebook
+      </a>
+      <a href="https://tiktok.com" target="_blank" class="social-link tiktok">
+        Tiktok
+      </a>
+      <a href="https://github.com" target="_blank" class="social-link github">
+        Github
+      </a>
+    </div>
+  </div>
+  
+    <p>
+      <a href="pages/about.html">About</a> |
+      <a href="pages/contact.html">Contact Us</a>
+    </p>
+  <div class="footer-copy">
+    <p>&copy; <span id="year"></span> Homestreet</p>
+  </div>
   </footer>
+<script src="../js/main.js"></script>
 </body>
 </html>
