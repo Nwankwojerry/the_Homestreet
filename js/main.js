@@ -30,4 +30,6 @@ document.querySelectorAll(".social-link").forEach(link => {
       console.log(`User clicked social link: ${e.target.innerText}`);
   });
 });
-})();
+
+console.log("JS is working");
+
