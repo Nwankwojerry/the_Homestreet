@@ -1,76 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Homestreet</title>
-  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/home.css" />
 </head>
-<body>
-  <header class="site-header">
-    <div class="logo">
-      <h1>Homestreet</h1>
-    </div>
-    <nav class="main-nav">
-      <a href="index.html">Home</a>
-      <a href="pages/about.html">About</a>
-      <a href="pages/posts.html">Blog</a>
-      <a href="pages/contact.html">Contact</a>
-    </nav>
-    <button class="menu-btn" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="sidebar">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </header>
-  <div class="overlay" aria-hidden="true"></div>
-    <nav id="sidebar" class="sidebar-nav" aria-label="Sidebar navigation">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="pages/news.html">News</a></li>
-        <li><a href="pages/posts.html">Blog</a></li>
-        <li><a href="pages/career.html">Career</a></li>
-        <li><a href="pages/forums.html">Forums</a></li>
-        <li><a href="pages/resources.html">Resources</a></li>
-        <li><a href="pages/about.html">About</a></li>
-        <li><a href="pages/contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  <main class="main-content">
-    <h2>Welcome to Homestreet</h2>
-    <p>Welcome to a place designed for the exchange of ideas and the advancement of exclusive contents. This platform exists to empower its user by providing the tools and insight neccesary for success in a rapidly changing enviroment.</p>
-    <p>By providing a streamlined accessible interface and curated contents, progress is a product of collective effort. This site aims to foster an enviroment where knowledge is shared freely and effectively so expect a consistence streams of resources tailored to the needs of a modern audience.</p>
-  </main>
-  <footer class="site-footer">
-    <div class="footer-legal">
-    <a href="pages/privacy.html">Privacy Policy</a>
-    <span class="divider">|</span>
-    <a href="pages/terms.html">Terms & Conditions</a>
-  </div>
 
-  <div class="footer-socials">
-    <p>Visit our Platforms:</p>
-    <div class="social-icons">
-      <a href="https://facebook.com" target="_blank" class="social-link facebook">
-        Facebook
+<body> class="page">
+
+  <header class="site-header">
+    <div class="site-header__inner">
+
+      <a href="index.html" class="site-header__brand">
+        <span class="site-header__logo">#</span>
+        <span class="site-header__name">Homestreet</span>
       </a>
-      <a href="https://tiktok.com" target="_blank" class="social-link tiktok">
-        Tiktok
-      </a>
-      <a href="https://github.com" target="_blank" class="social-link github">
-        Github
-      </a>
+
+      <button
+        class="site-header__toggle"
+        type="button"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="primary-nav">
+        MENU
+      </button>
+
+    <nav id="primary-nav" class="site-nav" aria-label="Main navigation">
+
+      <ul class="site-nav__list">
+
+        <li class="site-nav__item">
+          <a href="index.html" class="site-nav__link site-nav__link--active">Home</a>
+        </li>
+
+
+        <li class="site-nav__item site-nav__item--has-submenu">
+          <buttun class="site-nav__button" type="button" aria-expanded="false">
+            News
+          </button>
+          <ul class="site-nav__submenu">
+            <li><a href="#" class="site-nav__sublink">Latest</a></li>
+            <li><a href="#" class="site-nav__sublink">Local</a></li>
+            <li><a href="#" class="site-nav__sublink">World</a></li>
+          </ul>
+        </li>
+
+        <li class="site-nav__item site-nav__item--has-submenu">
+          <button class="site-nav__button" type="button" aria-expanded="false">
+            Tech
+          </button>
+          <ul class="site-nav__submenu">
+            <li><a href="#" class="site-nav__sublink">Gadgets</a></li>
+            <li><a href="#" class="site-nav__sublink">Web Dev</a></li>
+            <li><a href="#" class="site-nav__sublink">Software</a></li>
+          </ul>
+        </li>
+
+        <li class="site-nav__item site-nav__item--has-submenu">
+          <button class="site-nav__button" type="button" aria-expanded="false">
+            Economy
+          </button>
+          <ul class="site-nav__submenu">
+            <li><a href="#" class="site-nav__sublink">Business</a></li>
+            <li><a href="#" class="site-nav__sublink">Market</a></li>
+            <li><a href="#" class="site-nav__sublink">Finance</a></li>
+          </ul>
+        </li>
+
+        <li class="site-nav__item site-nav__item--has-submenu">
+          <button class="site-nav__button" type="button" aria-expanded="false">
+            Politics
+          </button>
+          <ul class="site-nav__submenu">
+            <li><a href="#" class="site-nav__sublink">Local</a></li>
+            <li><a href="#" class="site-nav__sublink">Global</a></li>
+          </ul>
+        </li>
+
+        <li class="site-nav__item site-nav__item--has-submenu">
+          <button class="site-nav__button" type="button" aria_expanded="false">
+            Explore
+          </button>
+        <ul class="site-nav__submenu">
+
+          <li class="site-nav__subitem site-nav__subitem--has-submenu">
+            <a href="#" class="site-nav__sublink">Resources</a>
+
+            <ul class="site-nav__submenu site-nav__submenu--nested">
+              <li><a href="#" class="site-nav__sublink">Tutorials</a></li>
+              <li><a href="#" class="site-nav__sublink">Guides</a></li>
+              <li><a href="#" class="site-nav__sublink">Tips & Tricks</a></li>
+            </ul>
+
+          </li>
+
+        </ul>
+      </li>
+
+      <li class="site-nav__item site-nav__item--has-submenu">
+        <button class="site-nav__buttton" type="button" aria-expanded="false">
+          Blog
+      </button>
+        <ul class="site-nav__submenu">
+          <li><a href="#" class="site-nav__sublink">Stories</a><li>
+          <li><a href="#" class="site-nav__sublink">Articles</a><li>
+        </ul>
+      </li>
+
+      <li class="site-nav__item site-nav__item--has-submenu">
+        <button class="site-nav__button" type="button" aria_expanded="false">
+          Entertainment
+        </button>
+        <ul class="site-nav__submenu">
+            <li><a href="#" class="site-nav__sublink">Movie News</a></li>
+            <li><a href="#" class="site-nav__sublink">Upcoming Movies</a></li>
+            <li><a href="#" class="site-nav__sublink">Celebrities</a></li>
+            <li><a href="#" class="site-nav__sublink">Fun Zone</a></li>
+          </ul>
+        </li>
+
+        <li class="site-nav__item">
+          <a href="pages/about.html" class="site-nav__link">About</a>
+        </li>
+
+        <li class="site-nav__item">
+          <a href="pages/contact.html" class="site-nav__link">Contact</a>
+        </li>
+
+      </ul>
+
+      <div class="site-nav__footer">
+        <a href="pages/about.html" class="site-nav__footer-link">About</a>
+        <a href="pages/privacy-policy.html" class="site-nav__footer-link">Privacy Policy</a>
+      </div>
+
+    </nav>
+  </div>
+</header>
+
+<main class="main-content">
+
+  <section class="hero section">
+    <div class="hero__content">
+
+      <p class="hero__eyebrow">Homestreet</p>
+
+      <h1 class="hero__title">Welcome to Homestreet</h1>
+
+      <p class="hero__text">
+          Welcome to a place designed for the exchange of ideas and the advancement of exclusive contents. This platform exists to empower its user by providing the tools and insight neccesary for success in a rapidly changing enviroment.
+      </p>
+
+      <p class="hero__text">
+          By providing a streamlined accessible interface and curated contents, progress is a product of collective effort. This site aims to foster an enviroment where knowledge is shared freely and effectively so expect a consistence streams of resources tailored to the needs of a modern audience.
+      </p>
+
     </div>
-  </div>
-  
-    <p>
-      <a href="pages/about.html">About</a> |
-      <a href="pages/contact.html">Contact Us</a>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+
+    <p class="site-footer__text">
+      <a href="pages/privacy-policy.html" class="site-footer__link">Privacy Policy</a>
+      <span class="site-footer__sep">|</span>
+      <a href="pages/terms.html" class="site-footer__link">Terms & Conditions</a>
     </p>
-  <div class="footer-copy">
-    <p>&copy; <span id="year"></span> Homestreet</p>
+
+    <div class="site-footer__social">
+      <p class="site-footer__label">Visit our Platforms:</p>
+
+      <ul class="site-footer__social-list">
+        <li class="site-footer__social-item">
+          <a class="site-footer__social-link site-footer__social-link--facebook" href="https://facebook.com" target="_blank" rel="nooopener noreferrer">
+            Facebook
+          </a>
+        </li>
+
+        <li class="site-footer__social-item">
+          <a class="site-footer__social-link site-footer__social-link--tiktok" href="https://tiktok.com" target="_blank" rel="nooopener noreferrer">
+            Tiktok
+          </a>
+        </li>
+
+        <li class="site-footer__social-item">
+          <a class="site-footer__social-link site-footer__social-link--github" href="https://github.com" target="_blank" rel="nooopener noreferrer">
+            Github
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <p class="site-footer__text">
+      <a href="pages/about.html" class="site-footer__link">About</a> |
+      <a href="pages/contact.html" class="site-footer__link">Feedback</a>
+    </p>
+
+    <p class="site-footer__copy"> Homestreet</p>
+
   </div>
-  </footer>
+</footer>
 <script src="js/main.js"></script>
 </body>
 </html>

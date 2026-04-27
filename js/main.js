@@ -1,49 +1,45 @@
-(function () {
-  const menuBtn = document.querySelector(".menu-btn") ||
-document.querySelector(".menu-toggle");
-  const sidebar = document.getElementById("sidebar") ||
-document.querySelector(".sidebar-nav");
-  const overlay = document.querySelector(".overlay");
+const nav = document.querySelector(".site-nav");
+const toggleBtn = document.querySelector(".site-header__toggle");
+const submenuButtons = document.querySelectorAll(".site-nav__button");
 
-  console.log("DEBUG: elements ->", { menuBtn, sidebar, overlay });
 
-if (!menuBtn) {
-  alert("DEBUG: menu button not found (check class .menu-btn).");
-  return;
-}
-if (!sidebar) {
-  alert("DEBUG: sidebar element not found (check id='sidebar' or class='.sidebar-nav').");
-  return;
-}
+toggleBtn.addEventListener("click", () => {
+  nav.classList.toggle("site-nav--open");
 
-if  (!overlay) {
-  console.warn("DEBUG: overlay not found  - overlay clicks will not close the sidebar.");
-}
+  const isOpen = nav.classList.contains("site-nav--open");
+  toggleBtn.setAttribute("aria-expanded", isOpen);
+});
 
-  menuBtn.setAttribute("aria-expanded", menuBtn.getAttribute("aria-expanded") || "false");
 
-  function toggleSidebar(open) {
-    const isOpen = typeof open === "boolean" ? open : !sidebar.classList.contains("open");
-    sidebar.classList.toggle("open", isOpen);
-    if (overlay) overlay.classList.toggle("active", isOpen);
-    menuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-    console.log("DEBUG: toggleSidebar ->", isOpen);
-  }
+submenuButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    const submenu = button.nextElementSibling;
 
-  menuBtn.onclick = null;
-  menuBtn.addEventListener("click", () => toggleSidebar());
+    document.querySelectorAll(".site-nav__submenu").forEach(menu => {
+      if (menu !== submenu) {
+        menu.classList.remove("site-nav__submenu--open");
+      }
+    });
 
-  if (overlay) {
-    overlay.onclick = null;
-    overlay.addEventListener("click", () => toggleSidebar(false));
-  }
-
-  // Close sidebar with Escape key
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && sidebar.classList.contains("open")) {
-      toggleSidebar(false);
-    }
+    submenu.classList.toggle("site-nav__submenu--open");
   });
+});
+
+document.addEventListener("click", (e) => {
+  if (!nav.contains(e.target) && !toggleBtn.contains(e.target)) {
+    nav.classList.remove("site-nav--open");
+    toggleBtn.setAttribute("aria-expanded", false);
+  }
+});
+
+document.querySelectorAll(".site-nav__link, .site-nav__sublink").forEach(link => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("site-nav--open");
+    toggleBtn.setAttribute("aria-aria-expanded", false);
+  });
+});
+
+
 const yearSpan = document.getElementById("year");
 if (yearSpan) {
   yearSpan.textContent = new Date().getFullYear();
