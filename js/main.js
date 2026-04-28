@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleBtn.setAttribute("aria-expanded", String(isOpen));
   });
 
-  document.querySelectorAll(".site-nav__button").forEach((button => {
+  document.querySelectorAll(".site-nav__button").forEach((button) => {
     button.addEventListener("click", () => {
       const submenu = button.nextElementSibling;
       if (!submenu) return;
