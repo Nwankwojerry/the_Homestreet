@@ -20,11 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 document.querySelectorAll(".site-nav__link, .site-nav__sublink, .site-nav__footer-link, .site-footer__link").forEach((link) => {
-  link.addEventListener("click", () => {
-    nav.classList.remove("site-nav--open");
-    toggleBtn.setAttribute("aria-expanded", "false");
+    link.addEventListener("click", () => {
+      nav.classList.remove("site-nav--open");
+      toggleBtn.setAttribute("aria-expanded", "false");
+    });
   });
-});
 
   const yearSpan = document.getElementById("year");
   if (yearSpan) {
@@ -33,7 +33,7 @@ document.querySelectorAll(".site-nav__link, .site-nav__sublink, .site-nav__foote
 
   document.querySelectorAll(".site-footer__social-link").forEach(link) => {
     link.addEventListener("click", (e) => {
-      console.log(`User clicked social link: ${e.target.innerText}`);
+      console.log(`User clicked social link: ${e.Target.innerText}`);
     });
   });
 
