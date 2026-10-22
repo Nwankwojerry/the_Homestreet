@@ -2,3 +2,10 @@
 @import url("../css/responsive.css");
 
 /* Phase 2 compatibility layer: the existing Homestreet design remains the source of truth. */
+
+.account-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin-bottom: 1.25rem;
+}
