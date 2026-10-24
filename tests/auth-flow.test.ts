@@ -105,6 +105,35 @@ test("registration forces Reader and invalid credentials are rejected", async ()
   assert.ok(invalidSignIn.status >= 400);
 });
 
+test("signed-in users cannot change their role through update-user", async () => {
+  const { auth, db } = createTestAuth();
+  const signUp = await request(auth, "sign-up/email", {
+    body: {
+      name: "Test Reader",
+      email,
+      password: initialPassword,
+    },
+  });
+  assert.equal(signUp.status, 200);
+  assert.equal(db.user[0].role, AUTH_ROLES.READER);
+
+  const signIn = await request(auth, "sign-in/email", {
+    body: { email, password: initialPassword },
+  });
+  assert.equal(signIn.status, 200);
+  const cookie = sessionCookie(signIn);
+
+  for (const role of [AUTH_ROLES.ADMIN, AUTH_ROLES.EDITOR, AUTH_ROLES.AUTHOR]) {
+    const update = await request(auth, "update-user", {
+      body: { role },
+      cookie,
+    });
+
+    assert.ok(update.status >= 400, `expected role ${role} update to be rejected`);
+    assert.equal(db.user[0].role, AUTH_ROLES.READER);
+  }
+});
+
 test("sessions reject invalid and expired cookies and logout invalidates the session", async () => {
   const { auth, db } = createTestAuth();
   await request(auth, "sign-up/email", {
