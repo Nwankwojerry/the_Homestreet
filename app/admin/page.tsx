@@ -1,12 +1,12 @@
 import { redirect } from "next/navigation";
-import { AuthorizationError, AUTH_ROLES } from "@/lib/auth-roles";
-import { requireServerRole } from "@/lib/auth-session";
+import { AuthorizationError, STAFF_CAPABILITIES } from "@/lib/auth-roles";
+import { requireServerStaffCapability } from "@/lib/auth-session";
 
 export default async function AdminPage() {
   let user;
 
   try {
-    ({ user } = await requireServerRole(AUTH_ROLES.ADMIN));
+    ({ user } = await requireServerStaffCapability(STAFF_CAPABILITIES.ACCESS_ADMIN_AREA));
   } catch (error) {
     if (!(error instanceof AuthorizationError)) throw error;
     redirect(error.status === 401 ? "/account?returnTo=%2Fadmin" : "/forbidden");

@@ -26,6 +26,8 @@ The migration `20261007000000_add_user_role` adds `public.user.role TEXT NOT NUL
 
 Public registration accepts no role input. Better Auth marks `role` as non-input and the server-side user-create hook unconditionally replaces any submitted role with `READER` before persistence. This also covers extra signup metadata: metadata does not assign model fields, and the hook discards the submitted `role` value. Never treat client-provided role data as authoritative. Server authorization distinguishes unauthenticated users (401) from users without the required role (403). The protected `/admin` page is Admin-only. Public article routes and read-only APIs remain accessible without authentication.
 
+Staff responsibilities are centralized in `STAFF_CAPABILITIES`. Admin-only capabilities cover administration, user management, and publication settings. Author, Editor, and Admin can create and manage articles they own; Editor and Admin can edit authors' articles, review submissions, publish, and archive. The capability policy does not grant access to `/admin` or any article-management route unless that route independently applies its own server-side capability check. Ownership and assigned-editor scope remain unresolved permission details for future implementation; they must not be inferred from the current capability registry.
+
 ## Proposed first-admin provisioning (approval required)
 
 There is no public bootstrap endpoint and no admin account is created automatically. The role migration is applied, but first-admin provisioning remains a separate approval gate. After the Stage 6 code is deployed and email verification delivery is confirmed, the proposed one-time procedure is:
