@@ -1,12 +1,12 @@
 import { LegacyMain } from "@/components/LegacyMain";
 import { DbArticle } from "@/components/DbArticle";
-import { getLegacyPage } from "@/lib/legacy";
+import { getLegacyFeatureAiPage } from "@/lib/legacy-feature-ai";
 import { getPrismaClient } from "@/lib/prisma";
 
 export const dynamic = "force-dynamic";
 
 export default async function FeatureAiPage() {
-  const legacy = getLegacyPage("feature-ai");
+  const legacy = getLegacyFeatureAiPage();
   const prisma = getPrismaClient();
   if (!prisma) return <LegacyMain html={legacy.mainHtml} />;
   try {
