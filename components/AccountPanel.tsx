@@ -1,23 +1,46 @@
 "use client";
 
 import { type FormEvent, useState } from "react";
+import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 
 type AccountMode = "sign-in" | "register" | "reset" | "verify";
 
-const modeLabels: Record<AccountMode, string> = {
+const submitLabels: Record<AccountMode, string> = {
   "sign-in": "Sign in",
   register: "Create account",
-  reset: "Reset password",
-  verify: "Resend verification",
+  reset: "Send reset link",
+  verify: "Send verification link",
+};
+
+const modeTitles: Record<AccountMode, string> = {
+  "sign-in": "Welcome back",
+  register: "Join Homestreet",
+  reset: "Reset your password",
+  verify: "Verify your email",
+};
+
+const modeDescriptions: Record<AccountMode, string> = {
+  "sign-in": "Sign in to continue to Homestreet.",
+  register: "Create an account to make Homestreet yours.",
+  reset: "We’ll email you a link to choose a new password.",
+  verify: "Get a fresh link to verify your email address.",
 };
 
 export function AccountPanel() {
   const { data: session, isPending, refetch } = authClient.useSession();
   const [mode, setMode] = useState<AccountMode>("sign-in");
   const [busy, setBusy] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+
+  function changeMode(nextMode: AccountMode) {
+    setMode(nextMode);
+    setShowPassword(false);
+    setMessage("");
+    setError("");
+  }
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -81,46 +104,43 @@ export function AccountPanel() {
 
   if (session) {
     return (
-      <div className="form">
-        <p>Signed in as {session.user.email}.</p>
-        <p>Email status: {session.user.emailVerified ? "verified" : "not verified"}.</p>
-        <button className="btn" type="button" onClick={signOut} disabled={busy}>
-          {busy ? "Signing out..." : "Sign out"}
-        </button>
-        {error && <p role="alert">{error}</p>}
-      </div>
+      <>
+        <header className="sign-in-card__header">
+          <h2>You’re signed in</h2>
+          <p>Your Homestreet account is ready.</p>
+        </header>
+        <div className="account-session">
+          <p className="account-session__email">Signed in as {session.user.email}.</p>
+          <p className="account-session__status">
+            Email status: {session.user.emailVerified ? "verified" : "not verified"}.
+          </p>
+          <button className="btn sign-in-submit" type="button" onClick={signOut} disabled={busy}>
+            {busy ? "Signing out..." : "Sign out"}
+          </button>
+          {error && <p className="account-error" role="alert">{error}</p>}
+        </div>
+      </>
     );
   }
 
   return (
     <>
-      <nav aria-label="Account actions" className="account-actions">
-        {(Object.keys(modeLabels) as AccountMode[]).map((value) => (
-          <button
-            aria-pressed={mode === value}
-            className={`btn ${mode === value ? "" : "btn-outline"}`}
-            key={value}
-            onClick={() => {
-              setMode(value);
-              setMessage("");
-              setError("");
-            }}
-            type="button"
-          >
-            {modeLabels[value]}
-          </button>
-        ))}
-      </nav>
-      <form className="form" onSubmit={submit}>
+      <header className="sign-in-card__header">
+        <h2>{modeTitles[mode]}</h2>
+        <p>{modeDescriptions[mode]}</p>
+      </header>
+      <form className="form sign-in-form" onSubmit={submit}>
         {mode === "register" && (
           <>
-            <label htmlFor="account-name">Name</label>
+            <label htmlFor="account-name">Your name</label>
             <input autoComplete="name" id="account-name" name="name" required />
           </>
         )}
-        <label htmlFor="account-email">Email</label>
+        <label htmlFor="account-email">Email address</label>
         <input
           autoComplete="email"
+          aria-describedby={error ? "account-error" : undefined}
+          aria-invalid={Boolean(error)}
           id="account-email"
           name="email"
           required
@@ -129,22 +149,77 @@ export function AccountPanel() {
         {(mode === "register" || mode === "sign-in") && (
           <>
             <label htmlFor="account-password">Password</label>
-            <input
-              autoComplete={mode === "register" ? "new-password" : "current-password"}
-              id="account-password"
-              minLength={8}
-              name="password"
-              required
-              type="password"
-            />
+            <div className="password-field">
+              <input
+                autoComplete={mode === "register" ? "new-password" : "current-password"}
+                aria-describedby={error ? "account-error" : undefined}
+                aria-invalid={Boolean(error)}
+                id="account-password"
+                minLength={8}
+                name="password"
+                required
+                type={showPassword ? "text" : "password"}
+              />
+              <button
+                aria-label={showPassword ? "Hide password" : "Show password"}
+                aria-pressed={showPassword}
+                className="password-toggle"
+                onClick={() => setShowPassword((visible) => !visible)}
+                type="button"
+              >
+                {showPassword ? "Hide" : "Show"}
+              </button>
+            </div>
           </>
         )}
-        <button className="btn" disabled={busy} type="submit">
-          {busy ? "Working..." : modeLabels[mode]}
+        {mode === "sign-in" && (
+          <div className="sign-in-utility">
+            <button className="text-action" onClick={() => changeMode("reset")} type="button">
+              Forgot password?
+            </button>
+          </div>
+        )}
+        <button className="btn sign-in-submit" disabled={busy} type="submit">
+          {busy ? "Please wait..." : submitLabels[mode]}
         </button>
-        {message && <p aria-live="polite">{message}</p>}
-        {error && <p aria-live="assertive" role="alert">{error}</p>}
+        {message && <p aria-live="polite" className="account-message">{message}</p>}
+        {error && <p aria-live="assertive" className="account-error" id="account-error" role="alert">{error}</p>}
       </form>
+      <div className="sign-in-links">
+        {mode === "sign-in" && (
+          <>
+            <p>
+              New to Homestreet?{" "}
+              <button className="text-action" onClick={() => changeMode("register")} type="button">
+                Create an account
+              </button>
+            </p>
+            <p>
+              Need a new verification link?{" "}
+              <button className="text-action" onClick={() => changeMode("verify")} type="button">
+                Resend verification
+              </button>
+            </p>
+          </>
+        )}
+        {mode !== "sign-in" && (
+          <p>
+            Back to{" "}
+            <button className="text-action" onClick={() => changeMode("sign-in")} type="button">
+              sign in
+            </button>
+          </p>
+        )}
+        {mode === "reset" && (
+          <p className="sign-in-note">If that address has an account, we’ll send a reset link.</p>
+        )}
+        {mode === "verify" && (
+          <p className="sign-in-note">Enter your email and we’ll send a link if verification is needed.</p>
+        )}
+      </div>
+      <Link className="sign-in-home-link" href="/">
+        Back to Homestreet
+      </Link>
     </>
   );
 }
