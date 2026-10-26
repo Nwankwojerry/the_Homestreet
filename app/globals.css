@@ -29,6 +29,19 @@
 	gap: 0.1rem;
 }
 
+.desktop-nav .nav-link,
+.desktop-nav .nav-button,
+.desktop-nav .dropdown a,
+.drawer-link,
+.drawer-toggle,
+.drawer-submenu a {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.035em;
+	text-transform: uppercase;
+}
+
 .nav-link,
 .nav-button {
 	padding-right: 0.55rem;
@@ -66,8 +79,9 @@
 	border-radius: 0.55rem;
 	background: transparent;
 	color: #334155;
-	font-size: 0.9rem;
-	font-weight: 650;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 0.76rem;
+	font-weight: 700;
 	line-height: 1;
 	white-space: nowrap;
 }
@@ -104,6 +118,8 @@
 	border-radius: 0;
 	padding-top: 1rem;
 	font-weight: 700;
+	font-size: 0.76rem;
+	text-transform: none;
 }
 
 .drawer-sign-in .sign-in-icon {
